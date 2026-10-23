@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if status == 503 %}Temporarily unavailable{% else %}Too many requests{% endif %}</title>
+</head>
+<body>
+  <main>
+    <h1>{% if status == 503 %}Temporarily unavailable{% else %}Too many requests{% endif %}</h1>
+    <p>{{ detail }}</p>
+    <p>You can try again in about {{ retry_after }} second{{ retry_after|pluralize }}.</p>
+  </main>
+</body>
+</html>

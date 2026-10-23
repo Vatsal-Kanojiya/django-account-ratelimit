@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-account-ratelimit"
+version = "0.1.0"
+description = "Per-user and per-account rate limiting for Django, with a DRF throttle and a shared-cache check."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Vatsal Kanojiya" }]
+dependencies = ["Django>=5.2,<6.0"]
+
+[project.optional-dependencies]
+drf = ["djangorestframework>=3.17,<4.0"]
+redis = ["redis>=5.0"]
+
+[tool.setuptools.packages.find]
+include = ["account_ratelimit*"]
+
+[tool.setuptools.package-data]
+account_ratelimit = ["templates/account_ratelimit/*.html"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = [".venv", "*.md"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "DJ", "C4"]
